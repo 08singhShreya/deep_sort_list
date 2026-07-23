@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "deep_sort_list_parser"  
-version = "1.0.0"               
+version = "1.0.1"               
 description = "A recursive data parser to flatten and sort complex nested structures safely."
 readme = "README.md"
 requires-python = ">=3.8"
