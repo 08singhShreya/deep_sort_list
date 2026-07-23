@@ -1,0 +1,24 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "deep_sort_list_shreya"  
+version = "1.0.2"  
+description = "A recursive data parser to flatten and sort complex nested structures safely."
+requires-python = ">=3.8"
+authors = [
+    { name = "Shreya Singh" }
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+]
+
+[project.readme]
+file = "README.md"
+content-type = "text/markdown"
+
+[tool.hatch.build.targets.wheel]
+only-include = ["deep_sort_list.py"]
+
