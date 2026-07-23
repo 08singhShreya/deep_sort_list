@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "deep_sort_list_shreya"  
-version = "1.0.2"  
+version = "1.0.3"  
 description = "A recursive data parser to flatten and sort complex nested structures safely."
 requires-python = ">=3.8"
 authors = [
@@ -21,4 +21,5 @@ content-type = "text/markdown"
 
 [tool.hatch.build.targets.wheel]
 only-include = ["deep_sort_list.py"]
+
 
