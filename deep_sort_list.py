@@ -1,5 +1,24 @@
 import collections
 
+def deep_sort_dict(input_dict):
+        """
+        Takes any dictionary, sorts its keys alphabetically, 
+        and checks if any of its values are ALSO dictionaries to sort them too!
+        """
+        sorted_dict = {}
+        sorted_keys = sorted(input_dict.keys(), key=str)
+
+        for key in sorted_keys:
+            value = input_dict[key]
+
+            # Use isinstance to support OrderedDict, Counter, and sub-dicts
+
+            if isinstance(value, dict):    # RECURSION CHECK: If the value inside this key is ANOTHER dictionary,call deep_sort_dict
+                sorted_dict[key] = deep_sort_dict(value)
+            else:
+                sorted_dict[key] = value   
+        return sorted_dict
+
 def clean_and_flatten(any_input, convert_numeric_strings = False):
     """
     Recursively flattens nested data structures and segregates types into sorted streams.
@@ -30,26 +49,7 @@ def clean_and_flatten(any_input, convert_numeric_strings = False):
     numbers = []
     words = []
     symbols = []
-    dict_tracks = []
-
-    def deep_sort_dict(input_dict):
-        """
-        Takes any dictionary, sorts its keys alphabetically, 
-        and checks if any of its values are ALSO dictionaries to sort them too!
-        """
-        sorted_dict = {}
-        sorted_keys = sorted(input_dict.keys(), key=str)
-
-        for key in sorted_keys:
-            value = input_dict[key]
-
-            # Use isinstance to support OrderedDict, Counter, and sub-dicts
-
-            if isinstance(value, dict):    # RECURSION CHECK: If the value inside this key is ANOTHER dictionary,call deep_sort_dict
-                sorted_dict[key] = deep_sort_dict(value)
-            else:
-                sorted_dict[key] = value   
-        return sorted_dict         
+    dict_tracks = []       
 
     # HANDLE ACCIDENTAL INPUTS at entry level:
     # Supports custom lists/tuples/sets safely via Sequence checks
@@ -59,15 +59,15 @@ def clean_and_flatten(any_input, convert_numeric_strings = False):
     else:
         any_list = [any_input]    
 
-    def unpack(box):
 
+    def unpack(box):
         for item in box:
             if isinstance(item, (list, tuple, set)):
                 unpack(item)  
 
             # Find any dictionary inside the list box
             elif isinstance(item, dict):
-                clean_dict = deep_sort_dict(item) 
+                clean_dict = deep_sort_dict(item)  #call global_helper_function
                 dict_tracks.append(clean_dict)
 
             elif type(item) is bool:
