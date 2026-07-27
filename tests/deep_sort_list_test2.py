@@ -1,3 +1,13 @@
+import sys
+import os
+
+# Get the path to the root folder (one level up from /tests)
+root_folder = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# FORCE Python to look here FIRST before searching globally installed packages
+if root_folder not in sys.path:
+    sys.path.insert(0, root_folder)
+
 import deep_sort_list
 
 print("Running Iterative & Set-Safe Test Passes...")

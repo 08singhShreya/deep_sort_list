@@ -1,8 +1,13 @@
 # verify_live.py
+import sys
+import os
+# Force Python to include the parent root folder in its search radar
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 
 #  1. Explicitly import the clean_and_flatten functions from both files
 from deep_sort_list import clean_and_flatten as iterative_clean
-from deep_sort_list_recursion_version import clean_and_flatten as recursive_clean
+from version1.deep_sort_list_recursion_version import clean_and_flatten as recursive_clean
 
 # 2. Define our standard testing payload matrix
 final_test_list = [

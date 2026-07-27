@@ -1,5 +1,10 @@
+import sys
+import os
+# Force Python to include the parent root folder in its search radar
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 import collections
-import deep_sort_list_recursion_version
+import version1.deep_sort_list_recursion_version as deep_sort_list_recursion_version
 
 crazy_list = [44, [3, "apple", "@#%&"], {"name": "Aadhya", "sex": "Female", "personal_details": {"is_married": False, "address": {"house_no": 448, "plot_no": 403, "strret": 'abc', "locality": "janki_nagar_extension", "pincode": 452010}, "is_employed": True}, "religion": "Hindu"}, "banana", "100", "^^^", '&', '101','222','1000', 589, [445,[28,'%','828',[45,54],'*']]]
 
