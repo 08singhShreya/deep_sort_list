@@ -1,6 +1,6 @@
 # test_suite.py
 import collections
-import deep_sort_list_recursion_version
+import version1.deep_sort_list_recursion_version as deep_sort_list_recursion_version
 
 print("Running optimized automated test suite...")
 
